@@ -1,0 +1,8 @@
+.desktop-page {
+    margin-top: 60px
+}
+
+.desktop-page .icons-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

@@ -6,7 +6,6 @@ function IconsGrid({ desktopIcons, openWindows, setOpenWindows }) {
     return (
 
         <div className="icons-grid">
-            <div className="desktop-icons">
         {desktopIcons.map(icon => (
           <div 
             key={icon.id}
@@ -19,22 +18,9 @@ function IconsGrid({ desktopIcons, openWindows, setOpenWindows }) {
         ))}
       </div>
       
-      {/* Windows will go here */}
-      
-      <div className="taskbar">
-        <button className="start-button">
-          <span className="windows-logo-small">🪟</span>
-          Start
-        </button>
-        <div className="taskbar-time">
-          {new Date().toLocaleTimeString([], { 
-            hour: '2-digit', 
-            minute: '2-digit' 
-          })}
-        </div>
-      </div>
+   
+    
 
-        </div>
     );
 }
 

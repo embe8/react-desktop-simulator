@@ -14,11 +14,26 @@ function Desktop() {
   ];
   
   return (
-    <div className="desktop-95">
+    <div className="desktop-page">
       <IconsGrid desktopIcons={desktopIcons} 
       openWindows={openWindows}
       setOpenWindows={setOpenWindows}
       />
+
+         {/* Windows will go here */}
+      
+         <div className="taskbar">
+        <button className="start-button">
+          <span className="windows-logo-small">🪟</span>
+          Start
+        </button>
+        <div className="taskbar-time">
+          {new Date().toLocaleTimeString([], { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+          })}
+        </div>
+        </div>
     </div>
   );
 }
