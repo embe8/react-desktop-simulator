@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import '././Bootups.css';
+import './Bootup.css';
 
-function Bootup() {
+function Bootup() {                               
     return (
         <div className="bootup-container">
             <div className="bootup-content">
