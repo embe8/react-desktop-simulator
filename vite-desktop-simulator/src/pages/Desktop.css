@@ -1,11 +1,15 @@
 .desktop-page {
-    margin-top: 0px
+    margin-top: 0px;
 
 }
 
 .desktop-page .icons-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-left: 0px;
+    
 }
 
 @media (max-width: 2000px) {
