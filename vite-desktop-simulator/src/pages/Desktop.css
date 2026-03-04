@@ -1,50 +1,63 @@
 .desktop-page {
     margin-top: 0px;
-
+    margin-left: 0px;
+    margin-right: 700px;
 }
 
 .desktop-page .icons-grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: max-content(4);
     margin-bottom: 50px;
     margin-top: 0px;
     margin-left: 0px;
+    column-gap: 0px;
+
+    .icons-container {
+      margin-left: 0;
+      margin-top: 0;
+
+    }
     
 }
 
 @media (max-width: 2000px) {
     .desktop-page .icons-grid {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: auto auto auto;
+
+      margin-bottom: 50px;
+      margin-top: 0px;
+      margin-left: 0px;
+      column-gap: 0px;
     }
   }
   
 @media (max-width: 1600px) {
     .desktop-page .icons-grid {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 1300px) {
     .desktop-page .icons-grid {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   
   @media (max-width: 1000px) {
     .desktop-page .icons-grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   
   @media (max-width: 800px) {
     .desktop-page .icons-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   
   @media (max-width: 575px) {
     .desktop-page .icons-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   
@@ -94,4 +107,5 @@
         margin-bottom: 10px;
         padding: 0 10px;
     }
+  
   }

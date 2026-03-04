@@ -1,20 +1,24 @@
 import { useState } from 'react';
 import './Desktop.css';
 import IconsGrid from '../components/IconsGrid';
+import Window from '../components/Window';
 
 function Desktop() {
   const [openWindows, setOpenWindows] = useState([]);
   
   const desktopIcons = [
-    { id: 'vinyl', name: 'My Vinyl', icon: '🎵' },
+    { id: 'music', name: 'Music', icon: '🎵' },
     { id: 'anime', name: 'Anime List', icon: '📺' },
     { id: 'movies', name: 'Movies', icon: '🎬' },
     { id: 'concerts', name: 'Concerts', icon: '🎸' },
     { id: 'about', name: 'About Me', icon: '👤' },
-    { id: 'spotify', name: 'Spotify Stats', icon: '🎵' },
     { id: 'games', name: 'Video Games', icon: '🎵' },
 
   ];
+
+  const closeWindow = (windowId) => {
+    setOpenWindows(openWindows.filter(id => id !== windowId));
+  };
   
   return (
     <div className="desktop-page">
@@ -23,12 +27,32 @@ function Desktop() {
       setOpenWindows={setOpenWindows}
       />
 
-         {/* Windows will go here */}
+       {/* Windows will go here */}
+      {/* Render opened windows */}
+      {openWindows.map(windowId => {
+        const icon = desktopIcons.find(i => i.id === windowId);
+        return (
+          <Window 
+            key={windowId}
+            title={icon.name}
+            onClose={() => closeWindow(windowId)}
+          >
+            {/* Content for each window type */}
+            {windowId === 'music' && <div>Music content here</div>}
+            {windowId === 'anime' && <div>Anime list here</div>}
+            {windowId === 'movies' && <div>Movies here</div>}
+            {windowId === 'concerts' && <div>Concerts here</div>}
+            {windowId === 'about' && <div>About me here</div>}
+            {windowId === 'games' && <div>Video games here</div>}
+          </Window>
+        );
+      })}
+
       
          <div className="taskbar">
         <button className="start-button">
           <span className="windows-logo-small">🪟</span>
-          Start
+          <b>Start</b>
         </button>
         <div className="taskbar-time">
           {new Date().toLocaleTimeString([], { 
@@ -44,4 +68,4 @@ function Desktop() {
   );
 }
 
-export default Desktop
+export default Desktop;
