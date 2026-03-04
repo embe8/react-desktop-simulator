@@ -9,7 +9,7 @@ function IconsGrid({ desktopIcons, openWindows, setOpenWindows }) {
         {desktopIcons.map(icon => (
           <div 
             key={icon.id}
-            className="desktop-icon"
+            className="icons-container"
             onDoubleClick={() => setOpenWindows([...openWindows, icon.id])}
           >
             <div className="icon-image">{icon.icon}</div>

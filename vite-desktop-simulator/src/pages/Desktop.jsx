@@ -10,7 +10,10 @@ function Desktop() {
     { id: 'anime', name: 'Anime List', icon: '📺' },
     { id: 'movies', name: 'Movies', icon: '🎬' },
     { id: 'concerts', name: 'Concerts', icon: '🎸' },
-    { id: 'about', name: 'About Me', icon: '👤' }
+    { id: 'about', name: 'About Me', icon: '👤' },
+    { id: 'spotify', name: 'Spotify Stats', icon: '🎵' },
+    { id: 'games', name: 'Video Games', icon: '🎵' },
+
   ];
   
   return (
