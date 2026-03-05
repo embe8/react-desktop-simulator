@@ -1,4 +1,4 @@
-export function Window() {
+export function Window({ title, onClose, children }) {
 
     return (
         <div className="widow-container">

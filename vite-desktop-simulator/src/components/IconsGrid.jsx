@@ -2,6 +2,11 @@ import { useState } from 'react';
 import './IconsGrid.css';
 
 function IconsGrid({ desktopIcons, openWindows, setOpenWindows }) {
+    const handleDoubleClick = (iconId) => {
+      if (!openWindows.includes(iconId)) {
+        setOpenWindows([...openWindows, iconId]);
+      }
+    };
 
     return (
 
@@ -10,7 +15,7 @@ function IconsGrid({ desktopIcons, openWindows, setOpenWindows }) {
           <div 
             key={icon.id}
             className="icons-container"
-            onDoubleClick={() => setOpenWindows([...openWindows, icon.id])}
+            onDoubleClick={() => handleDoubleClick(icon.id)}
           >
             <div className="icon-image">{icon.icon}</div>
             <div className="icon-label">{icon.name}</div>

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './Desktop.css';
 import IconsGrid from '../components/IconsGrid';
 import Window from '../components/Window';
+import startButtonImg from '../assets/start_button95.png';
+
 
 function Desktop() {
   const [openWindows, setOpenWindows] = useState([]);
@@ -51,7 +53,11 @@ function Desktop() {
       
          <div className="taskbar">
         <button className="start-button">
-          <span className="windows-logo-small">🪟</span>
+          <img
+            src={startButtonImg}
+            alt="Start"
+            className="start-button-icon"
+          />
           <b>Start</b>
         </button>
         <div className="taskbar-time">
