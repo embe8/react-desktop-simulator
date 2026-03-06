@@ -2,6 +2,12 @@ import { useState } from 'react';
 import './Desktop.css';
 import IconsGrid from '../components/IconsGrid';
 import Window from '../components/Window';
+import MusicWindow from '../components/windows/MusicWindow';
+import AnimeWindow from '../components/windows/AnimeWindow';
+import MoviesWindow from '../components/windows/MoviesWindow';
+import ConcertsWindow from '../components/windows/ConcertsWindow';
+import AboutWindow from '../components/windows/AboutWindow';
+import GamesWindow from '../components/windows/GamesWindow';
 import startButtonImg from '../assets/start_button95.png';
 
 
@@ -41,12 +47,12 @@ function Desktop() {
             onClose={() => closeWindow(windowId)}
           >
             {/* Content for each window type */}
-            {windowId === 'music' && <div>Music content here</div>}
-            {windowId === 'anime' && <div>Anime list here</div>}
-            {windowId === 'movies' && <div>Movies here</div>}
-            {windowId === 'concerts' && <div>Concerts here</div>}
-            {windowId === 'about' && <div>About me here</div>}
-            {windowId === 'games' && <div>Video games here</div>}
+            {windowId === 'music' && <MusicWindow />}
+            {windowId === 'anime' && <AnimeWindow />}
+            {windowId === 'movies' && <MoviesWindow />}
+            {windowId === 'concerts' && <ConcertsWindow />}
+            {windowId === 'about' && <AboutWindow />}
+            {windowId === 'games' && <GamesWindow />}
           </Window>
         );
       })}
