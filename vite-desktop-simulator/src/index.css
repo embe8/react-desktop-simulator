@@ -1,7 +1,8 @@
 :root {
-  font-family:'Courier New', Courier, monospace;
+  font-family:'Garamond', sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 15px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -27,7 +28,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  background-color: teal;
+  background-color: rgb(25, 11, 225);
   color: white;
 }
 

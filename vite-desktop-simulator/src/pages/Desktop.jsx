@@ -54,11 +54,6 @@ function Desktop() {
       
          <div className="taskbar">
         <button className="start-button">
-          <img
-            src={startButtonImg}
-            alt="Start"
-            className="start-button-icon"
-          />
           <b>Start</b>
         </button>
         <div className="taskbar-time">

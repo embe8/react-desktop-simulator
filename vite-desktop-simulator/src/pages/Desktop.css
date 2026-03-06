@@ -84,7 +84,7 @@
     left: 0;
     right: 0;
     height: 50px;
-    background-color: #333;
+    background-color: #CCC;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -92,7 +92,7 @@
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     .taskbar-time {
         font-family: 'Courier New', Courier, monospace;
-        font-size: 12px;
+        font-size: 15px;
         color: #fff;
         margin-left: 10px;
         align-items: right;
@@ -107,6 +107,17 @@
         margin-top: 10px;
         margin-bottom: 10px;
         padding: 0 10px;
+    }
+    .start-button {
+      border-radius: 0;
+      border: 2px solid;
+      border-color: #dfdfdf #808080 #808080 #dfdfdf;
+      box-shadow: 1px 1px 0 #000;
+      background: #c0c0c0;
+      font-family: 'Times New Roman', serif;
+      font-size: 18px;
+      padding: 4px 12px;
+
     }
   
   }
