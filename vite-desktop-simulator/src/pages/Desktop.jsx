@@ -36,6 +36,7 @@ function Desktop() {
         return (
           <Window 
             key={windowId}
+            icon={icon.icon}
             title={icon.name}
             onClose={() => closeWindow(windowId)}
           >

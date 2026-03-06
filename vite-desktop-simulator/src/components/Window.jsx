@@ -1,10 +1,13 @@
-export function Window({ title, onClose, children }) {
+import './Window.css';
+
+
+export function Window({ icon, title, onClose, children }) {
 
     return (
         <div className="widow-container">
             <div className="window-header">
                 <div className="window-title">
-                    <span className="window-icon">dummy window icon</span>
+                    <span className="window-icon">{icon}</span>
                     {title}
                 </div>
                 <div className="window-controls">

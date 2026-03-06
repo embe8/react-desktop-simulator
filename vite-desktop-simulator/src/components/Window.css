@@ -1,0 +1,58 @@
+.window-container {
+    position: absolute;          /* or fixed, if you want */
+    top: 80px;
+    left: 80px;
+    width: 500px;
+    background: #f0f0f0;
+    border: 2px solid #999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  
+  .window-header {
+    background: linear-gradient(#1f5fbf, #174a90);
+    color: white;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default;
+  }
+  
+  .window-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  
+  .window-controls {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .window-btn {
+    width: 20px;
+    height: 18px;
+    font-size: 10px;
+    padding: 0;
+    border-radius: 0;
+    border: 1px solid #555;
+    background: #ddd;
+  }
+  
+  .window-btn.close {
+    background: #e81123;
+    color: white;
+  }
+  
+  .window-content {
+    padding: 10px;
+    background: #ffffff;
+    color: #000;
+    font-size: 13px;
+  }
