@@ -36,3 +36,20 @@ function MusicWindow({ }) {
 
 export default MusicWindow;
 
+import vinyls from '../../data/vinyl.json';
+
+function VinylCollection({ onBack }) {
+    return (
+        <div className="vinyl-container">
+            {vinyls.map(vinyl => (
+                <div 
+                key={vinyl.vinylId} className="vinyl-card">
+                <img src={vinyl.vinylMedia} alt="image" />
+                <h3>{vinyl.vinylAlbum}</h3>
+                <p>{vinyl.vinylArtist}</p>
+                </div>
+            ))
+            }
+        </div>
+    );
+}
