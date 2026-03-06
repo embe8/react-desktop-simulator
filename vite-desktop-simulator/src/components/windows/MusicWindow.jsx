@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import IconsGrid from '../IconsGrid';
 
-function MusicWindow() {
+function MusicWindow({ }) {
     const [active, setActive] = useState(null)
 
     const musicIcons = [
@@ -20,15 +19,17 @@ function MusicWindow() {
 
 
     return (
-        <div className="movies-container">
-            <IconsGrid musicIcons={musicIcons}
-                openWindows={[]}
-                setOpenWindows={(windows) => {
-                    // On double click change view, not window
-                    const lastWindow = windows[window.length - 1];
-                    setActive(lastWindow);
-                }}
-            />
+        <div className="music-container">
+            {musicIcons.map(icon => (
+                <div
+                    key={icon.id}
+                    className="icons-container"
+                    onDoubleClick={() => setActive(icon.id)}
+                >
+                    <div className='icon-image'>{icon.icon}</div>
+                    <div className='icon-name'>{icon.name}</div>
+                </div>
+            ))}
         </div>
     );
 }
