@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function MusicWindow({ }) {
+function MusicWindow({ setWindowTitle }) {
     const [active, setActive] = useState(null)
 
     const musicIcons = [
         { id: 'vinyl', name: 'Vinyl Collection', icon: '💿' },
         { id: 'spotify', name: 'Spotify Stats', icon: '🎧' },
     ];
+
+    useEffect(() => {
+        if (!setWindowTitle) return;
+        if (active === 'vinyl') setWindowTitle('Vinyl Collection');
+        else if (active === 'spotify') setWindowTitle('Spotify Stats');
+        else setWindowTitle('Music');
+    }, [active]);
 
     // Show sub-content if icon was clicked
     if (active === 'vinyl') {
@@ -41,6 +48,7 @@ import vinyls from '../../data/vinyl.json';
 function VinylCollection({ onBack }) {
     return (
         <div className="vinyl-container">
+            <button onClick={onBack}>⬅ Back</button>            
             {vinyls.map(vinyl => (
                 <div 
                 key={vinyl.vinylId} className="vinyl-card">

@@ -13,6 +13,7 @@ import startButtonImg from '../assets/start_button95.png';
 
 function Desktop() {
   const [openWindows, setOpenWindows] = useState([]);
+  const [windowTitles, setWindowTitles] = useState([]);
   
   const desktopIcons = [
     { id: 'music', name: 'Music', icon: '🎵' },
@@ -39,15 +40,22 @@ function Desktop() {
       {/* Render opened windows */}
       {openWindows.map(windowId => {
         const icon = desktopIcons.find(i => i.id === windowId);
+        const title = windowTitles[windowId] ?? icon.name; // default = "Music"
+
         return (
           <Window 
             key={windowId}
             icon={icon.icon}
-            title={icon.name}
+            title={title}
             onClose={() => closeWindow(windowId)}
           >
             {/* Content for each window type */}
-            {windowId === 'music' && <MusicWindow />}
+            {windowId === 'music' && (
+              <MusicWindow setWindowTitle={(newTitle) =>
+                setWindowTitles(prev => ({...prev, [windowId]: newTitle }))
+                }
+              />)
+            }
             {windowId === 'anime' && <AnimeWindow />}
             {windowId === 'movies' && <MoviesWindow />}
             {windowId === 'concerts' && <ConcertsWindow />}
