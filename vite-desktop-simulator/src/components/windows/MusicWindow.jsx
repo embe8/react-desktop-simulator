@@ -61,3 +61,15 @@ function VinylCollection({ onBack }) {
         </div>
     );
 }
+
+function SpotifyStats({ onBack }) {
+
+    return (
+        <div className="spotify-stats">
+            <button onClick={onBack}>⬅ Back</button>            
+
+
+        </div>
+
+    );
+}

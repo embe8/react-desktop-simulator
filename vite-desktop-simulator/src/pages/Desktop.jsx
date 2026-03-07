@@ -21,7 +21,7 @@ function Desktop() {
     { id: 'movies', name: 'Movies', icon: '🎬' },
     { id: 'concerts', name: 'Concerts', icon: '🎸' },
     { id: 'about', name: 'About Me', icon: '👤' },
-    { id: 'games', name: 'Video Games', icon: '🎵' },
+    { id: 'games', name: 'Video Games', icon: '🎮' },
 
   ];
 
