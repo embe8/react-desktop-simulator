@@ -30,6 +30,7 @@ function Desktop() {
   };
   
   return (
+    
     <div className="desktop-page">
       <IconsGrid desktopIcons={desktopIcons} 
       openWindows={openWindows}
