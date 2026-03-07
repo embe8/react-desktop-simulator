@@ -55,6 +55,7 @@
     background: #ffffff;
     color: #000;
     font-size: 13px;
+    flex: 1; /* stretch to fill all available space when resized*/
   }
 
   .react-resizable-handle {
