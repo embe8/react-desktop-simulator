@@ -8,18 +8,22 @@
   background-color: #190be1;
   text-align: left;
   color: white;
+  width: 100%;
+  min-height: 100vh;
 
 }
 
 .desktop-page .icons-grid{
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    margin-bottom: 50px;
-    margin-top: 0px;
-    margin-left: 0px;
-    column-gap: 0px;
-    justify-content: start;
-    justify-items: start;
+  display: inline-grid;
+  grid-template-columns: repeat(4, auto);
+  margin: 0;
+  column-gap: 0px;
+  row-gap: 0px;      /* ✅ add this */
+  justify-content: start;
+  justify-items: start;
+  padding-left: 20px;
+    
+    
 
     
 }
@@ -72,14 +76,17 @@
   }
 
   .desktop-page .icons-container {
-    padding-top: 100px;
-    padding-bottom: 25px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-top: 50px;   /* ✅ was 100px */
+    padding-bottom: 10px; /* ✅ was 25px */
+    padding-left: 10px;   /* ✅ was 25px */
+    padding-right: 50px;  /* ✅ was 25px */
+    align-items: center;
 
     display: flex;
     flex-direction: column;
+ 
   }
+
 
   .desktop-page .taskbar {
     position: fixed;
