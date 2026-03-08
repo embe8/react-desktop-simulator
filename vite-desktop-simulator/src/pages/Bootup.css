@@ -16,3 +16,37 @@
     animation: flicker 6s infinite; /* subtle CRT screen flicker */
 
 }
+
+
+/* Subtle screen flicker */
+@keyframes flicker {
+    0% { opacity: 1;}
+    91% { opacity: 1;}
+    92% { opacity: 0.80;}
+    94% { opacity: 1;}
+    96% { opacity: 0.8;}
+    100% { opacity: 1;}   
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+  }
+
+/* Blinking block cursor */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: #c0c0c0;
+    vertical-align: middle;
+    animation: blink 0.7s step-end infinite;
+    margin-left: 2px;
+  }
+
+  /* "Press any key" blinking text */
+.press-key {
+    display: none; /* hidden until boot sequence finishes */
+    margin-top: 24px;
+    color: #fff;
+    animation: blink 1s step-end infinite;
+  }

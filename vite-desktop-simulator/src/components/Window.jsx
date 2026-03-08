@@ -7,7 +7,7 @@ import 'react-resizable/css/styles.css';
 
 export function Window({ icon, title, onClose, children }) {
   const nodeRef = useRef(null); // Create a ref
-  const [size, setSize] = useState({ width: 200, height: 200 });
+  const [size, setSize] = useState({ width: 200, height: 'auto' });
 
   const onResize = (event, { size: newSize }) => {
     setSize({ width: newSize.width, height: newSize.height });
