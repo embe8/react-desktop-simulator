@@ -1,7 +1,7 @@
 .window-container {
     position: absolute;          
-    top: 80px;
-    left: 80px;
+    top: -500px;
+    left: 10px;
     width: 500px;
     background: #f0f0f0;
     border: 2px solid #999;
