@@ -54,7 +54,8 @@ function Bootup() {
         if (hasRun.current) return;
         hasRun.current = true;
 
-        run();
+        async function runAndListen() {
+            await run();
 
         const handleKey = () => {
             if (pressKeyRef.current?.style.display === 'block') {
@@ -63,6 +64,9 @@ function Bootup() {
         };
         window.addEventListener('keydown', handleKey);
         return () => window.removeEventListener('keydown', handleKey);
+        }
+        runAndListen();
+
     }, []);
 
 
