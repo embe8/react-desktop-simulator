@@ -1,10 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router';
 import './Bootup.css';
 
 function Bootup() {
     const logRef = useRef(null);
     const pressKeyRef = useRef(null);
     const cursorRef = useRef(null);
+    const navigate = useNavigate();
+
     // to prevent run() from running twice
     const hasRun = useRef(false);
     const lines = [
@@ -55,7 +58,7 @@ function Bootup() {
 
         const handleKey = () => {
             if (pressKeyRef.current?.style.display === 'block') {
-                onFinish?.();
+                navigate('/desktop');
             }
         };
         window.addEventListener('keydown', handleKey);
