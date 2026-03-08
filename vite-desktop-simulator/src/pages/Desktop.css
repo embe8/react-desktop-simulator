@@ -1,23 +1,26 @@
 .desktop-page {
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 700px;
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  background-color: #190be1;
+  text-align: left;
+  color: white;
+
 }
 
 .desktop-page .icons-grid{
     display: grid;
-    grid-template-columns: max-content(4);
+    grid-template-columns: repeat(4, auto);
     margin-bottom: 50px;
     margin-top: 0px;
     margin-left: 0px;
     column-gap: 0px;
+    justify-content: start;
+    justify-items: start;
 
-    .icons-container {
-      margin-left: 0;
-      margin-top: 0;
-
-    }
     
 }
 
@@ -69,7 +72,7 @@
   }
 
   .desktop-page .icons-container {
-    padding-top: 5px;
+    padding-top: 100px;
     padding-bottom: 25px;
     padding-left: 25px;
     padding-right: 25px;

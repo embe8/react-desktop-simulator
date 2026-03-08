@@ -12,8 +12,8 @@ function App() {
 
   return (
     <Routes>
-      <Route index element={<Desktop />} />
-      <Route path="/bootup" element={<Bootup />} />
+      <Route path="/" element={<Bootup />} />
+      <Route path="/desktop" element={<Desktop />} />
 
       
     </Routes>
