@@ -8,12 +8,14 @@ import MoviesWindow from '../components/windows/MoviesWindow';
 import ConcertsWindow from '../components/windows/ConcertsWindow';
 import AboutWindow from '../components/windows/AboutWindow';
 import GamesWindow from '../components/windows/GamesWindow';
+import StartMenu from '../components/startMenu';
 import startButtonImg from '../assets/start_button95.png';
 
 
 function Desktop() {
   const [openWindows, setOpenWindows] = useState([]);
   const [windowTitles, setWindowTitles] = useState([]);
+  const [showMenu, setShowMenu] = useState([]);
   
   const desktopIcons = [
     { id: 'music', name: 'Music', icon: '🎵' },
@@ -68,9 +70,15 @@ function Desktop() {
 
       
          <div className="taskbar">
-        <button className="start-button">
+        <button className="start-button"
+          onClick={() => setShowMenu(!showMenu)}
+        >
           <b>Start</b>
         </button>
+        {showMenu && <StartMenu 
+          desktopIcons={desktopIcons}
+          onClose={() => setShowMenu(false)}  
+          />}
         <div className="taskbar-time">
           {new Date().toLocaleTimeString([], { 
             day: 'numeric',
