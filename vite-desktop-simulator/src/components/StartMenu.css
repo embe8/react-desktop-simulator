@@ -8,7 +8,7 @@
     box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     z-index: 1000; 
     .arrow {
-        margin-left: auto; /* ✅ pushes arrow to the far right */
+        margin-left: auto; 
         font-size: 10px;
     }
 

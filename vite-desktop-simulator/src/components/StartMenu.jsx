@@ -10,8 +10,14 @@ const subMenus = {
     moview: [],
 };
 
-function startMenu({ onClose, desktopIcons }) {
+function startMenu({ onClose, desktopIcons, openWindows, setOpenWindows }) {
     const [activeSubmenu, setActiveSubmenu] = useState(null);
+
+    const handleClick = (iconId) => {
+        if (!openWindows.includes(iconId)) {
+          setOpenWindows([...openWindows, iconId]);
+        }
+      };
 
  
 
@@ -23,6 +29,7 @@ function startMenu({ onClose, desktopIcons }) {
                  className={`start-menu-item ${activeSubmenu === icon.id ? 'active' : ''}`}
                  onMouseEnter={() => setActiveSubmenu(icon.id)}
                  onMouseLeave={() => setActiveSubmenu(null)}
+                 onClick={()=> handleClick(icon.id)}
                 >
                     <span>{icon.icon}</span>
                     <span>{icon.name}</span>

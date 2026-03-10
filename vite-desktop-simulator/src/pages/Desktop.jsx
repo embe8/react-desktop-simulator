@@ -15,7 +15,7 @@ import startButtonImg from '../assets/start_button95.png';
 function Desktop() {
   const [openWindows, setOpenWindows] = useState([]);
   const [windowTitles, setWindowTitles] = useState([]);
-  const [showMenu, setShowMenu] = useState([]);
+  const [showMenu, setShowMenu] = useState(false);
   
   const desktopIcons = [
     { id: 'music', name: 'Music', icon: '🎵' },
@@ -77,6 +77,8 @@ function Desktop() {
         </button>
         {showMenu && <StartMenu 
           desktopIcons={desktopIcons}
+          openWindows={openWindows}
+          setOpenWindows={setOpenWindows}
           onClose={() => setShowMenu(false)}  
           />}
         <div className="taskbar-time">
