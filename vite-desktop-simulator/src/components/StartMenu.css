@@ -9,3 +9,18 @@
     z-index: 1000; 
 
 }
+
+.start-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    cursor: pointer;
+    position: relative;
+    color: black;
+}
+
+.start-menu-item:hover, .start-menu-item.active {
+    background: #174a90;
+    color: white;
+}
