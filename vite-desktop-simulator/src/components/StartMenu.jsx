@@ -30,9 +30,9 @@ function startMenu({ onClose, desktopIcons }) {
                     </span>
                     {/* submenu appears beside arrow */}
                     {activeSubmenu === icon.id && subMenus[icon.id]?.length > 0 && (
-                        <div className="submenu-container">
+                        <div className="submenu">
                             {subMenus[icon.id].map(sub => (
-                                <div key={sub.id} className="submenu-items">
+                                <div key={sub.id} className="submenu-item start-menu-item">
                                     <span>{sub.icon}</span>
                                     <span>{sub.name}</span>
                                 </div>
