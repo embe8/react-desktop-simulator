@@ -1,5 +1,5 @@
 import './StartMenu.css';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const subMenus = {
     music: [
@@ -12,6 +12,18 @@ const subMenus = {
 
 function startMenu({ onClose, desktopIcons, openWindows, setOpenWindows }) {
     const [activeSubmenu, setActiveSubmenu] = useState(null);
+    const startMenu = useRef(null);
+
+    useEffect(() => {
+        const closeOpenMenu = (e)=>{
+            if(startMenu.current && !startMenu.current?.contains(e.target)){
+                onClose();
+            }
+        };
+
+        document.addEventListener('mousedown',closeOpenMenu);
+        return () => document.removeEventListener('mousedown', closeOpenMenu);
+    }, []);
 
     const handleClick = (iconId) => { 
         // only open the menu if it has no submenu
@@ -29,12 +41,17 @@ function startMenu({ onClose, desktopIcons, openWindows, setOpenWindows }) {
         }
     };
 
+
+
     
 
  
 
     return (
-        <div className="start-container">
+        <div 
+        ref={startMenu}
+        className="start-container"
+        >
             { desktopIcons.map(icon => (
                 <div
                  key={icon.id}

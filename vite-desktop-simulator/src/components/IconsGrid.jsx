@@ -13,32 +13,24 @@ function IconsGrid({ desktopIcons, openWindows, setOpenWindows }) {
     };
 
     return (
-
-
         <div className="icons-grid">
         {desktopIcons.filter(icon => !icon.hidden).map(icon => (
-              <Draggable
-              key={icon.id}
-              handle=".icons-container"
-              nodeRef={nodeRef} // Pass the ref here
-            >
-          <div 
-            ref={nodeRef}
-            className="icons-container"
-            onDoubleClick={() => handleDoubleClick(icon.id)}
+          <Draggable
+            key={icon.id}
+            handle=".icons-container"
+            nodeRef={nodeRef} // Pass the ref here
           >
-            <div className="icon-image">{icon.icon}</div>
-            <div className="icon-label">{icon.name}</div>
-          </div>
+            <div 
+              ref={nodeRef}
+              className="icons-container"
+              onDoubleClick={() => handleDoubleClick(icon.id)}
+            >
+              <div className="icon-image">{icon.icon}</div>
+              <div className="icon-label">{icon.name}</div>
+            </div>
           </Draggable>
-        ))}
-        
+        ))}        
       </div>
-    
-      
-   
-    
-
     );
 }
 
