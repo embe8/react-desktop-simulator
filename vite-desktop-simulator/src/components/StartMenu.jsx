@@ -13,11 +13,23 @@ const subMenus = {
 function startMenu({ onClose, desktopIcons, openWindows, setOpenWindows }) {
     const [activeSubmenu, setActiveSubmenu] = useState(null);
 
-    const handleClick = (iconId) => {
-        if (!openWindows.includes(iconId)) {
-          setOpenWindows([...openWindows, iconId]);
+    const handleClick = (iconId) => { 
+        // only open the menu if it has no submenu
+        if (!subMenus[iconId]?.length > 0) {
+            if (!openWindows.includes(iconId)) {
+            setOpenWindows([...openWindows, iconId]);
+            }
         }
       };
+
+    const handleSubClick = (e, subId) => {
+        e.stopPropagation(); //prevent parent onClick from activating
+        if (!openWindows.includes(subId)) {
+            setOpenWindows([...openWindows, subId]);
+        }
+    };
+
+    
 
  
 
@@ -39,7 +51,10 @@ function startMenu({ onClose, desktopIcons, openWindows, setOpenWindows }) {
                     {activeSubmenu === icon.id && subMenus[icon.id]?.length > 0 && (
                         <div className="submenu">
                             {subMenus[icon.id].map(sub => (
-                                <div key={sub.id} className="submenu-item start-menu-item">
+                                <div key={sub.id} 
+                                    className="submenu-item start-menu-item"
+                                    onClick={(e)=> handleSubClick(e, sub.id)}
+                                >
                                     <span>{sub.icon}</span>
                                     <span>{sub.name}</span>
                                 </div>

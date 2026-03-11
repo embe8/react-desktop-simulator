@@ -11,7 +11,7 @@ function IconsGrid({ desktopIcons, openWindows, setOpenWindows }) {
     return (
 
         <div className="icons-grid">
-        {desktopIcons.map(icon => (
+        {desktopIcons.filter(icon => !icon.hidden).map(icon => (
           <div 
             key={icon.id}
             className="icons-container"
@@ -21,6 +21,7 @@ function IconsGrid({ desktopIcons, openWindows, setOpenWindows }) {
             <div className="icon-label">{icon.name}</div>
           </div>
         ))}
+        
       </div>
       
    

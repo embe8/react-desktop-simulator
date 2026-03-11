@@ -24,6 +24,9 @@ function Desktop() {
     { id: 'concerts', name: 'Concerts', icon: '🎸' },
     { id: 'about', name: 'About Me', icon: '👤' },
     { id: 'games', name: 'Video Games', icon: '🎮' },
+    { id: 'vinyl', name: 'Vinyl Collection', icon: '💿', hidden: true },
+    { id: 'spotify', name: 'Spotify Stats', icon: '🎧', hidden: true },
+    
 
   ];
 
@@ -64,6 +67,7 @@ function Desktop() {
             {windowId === 'concerts' && <ConcertsWindow />}
             {windowId === 'about' && <AboutWindow />}
             {windowId === 'games' && <GamesWindow />}
+   
           </Window>
         );
       })}
