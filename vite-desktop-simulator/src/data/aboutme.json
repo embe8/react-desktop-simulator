@@ -1,0 +1,23 @@
+[
+    {
+        "aboutId": "am43638ce-6aa0-4b85-b27f-e1d07eb678c1",
+        "aboutName": "Overview",
+        "aboutNotes": "Hi, I'm Erika. I have lots of hobbies and interests so I thought I should document and record them in one place. I thought why not make use of my coding skills for this. It would be fun to make this project while learning React and JavaScript. During my CS classes, we mostly used Python, C++, and Java so I had to teach myself JavaScript and web frameworks such as React as well. So here is the product of my interests and education. Thanks for viewing my site!",
+        "aboutMedia": null
+    },
+    {
+        "aboutId": "am43638ce-6aa0-4b85-b27f-e1d07eb678c2",
+        "aboutName": "Social Media",
+        "aboutNotes": "",
+        "aboutMedia": null
+    },
+    {
+        "aboutId": "am43638ce-6aa0-4b85-b27f-e1d07eb678c3",
+        "aboutName": "Other",
+        "aboutNotes": "",
+        "aboutMedia": null
+    }
+  
+]
+
+

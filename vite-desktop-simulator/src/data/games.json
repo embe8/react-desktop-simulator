@@ -1,0 +1,23 @@
+[
+    {
+        "gameId": "g43638ce-6aa0-4b85-b27f-e1d07eb678c1",
+        "gameName": "Persona 3",
+        "gameDate": "1",
+        "gameMedia": null,
+        "gameNotes": "dummy text"
+    },
+    {
+        "gameId": "g43638ce-6aa0-4b85-b27f-e1d07eb678c2",
+        "gameName": "Persona 4",
+        "gameDate": "1",
+        "gameMedia": null,
+        "gameNotes": "dummy text"
+    },
+    {
+        "gameId": "g43638ce-6aa0-4b85-b27f-e1d07eb678c3",
+        "gameName": "Persona 5",
+        "gameDate": "1",
+        "gameMedia": null,
+        "gameNotes": "dummy text"
+    }
+]
