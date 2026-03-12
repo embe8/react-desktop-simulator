@@ -11,7 +11,9 @@ export function Window({ icon, title, onClose, children }) {
 
   const onResize = (event, { size: newSize }) => {
     setSize({ width: newSize.width, height: newSize.height });
-
+  };
+  const handleMax = () => {
+    setSize({width: 900, height: 700});
   };
 
 
@@ -38,7 +40,7 @@ export function Window({ icon, title, onClose, children }) {
             </div>
             <div className="window-controls">
               <button className="window-btn minimize">_</button>
-              <button className="window-btn maximize">□</button>
+              <button className="window-btn maximize" onClick={handleMax}>□</button>
               <button className="window-btn close" onClick={onClose}>✕</button>
             </div>
           </div>

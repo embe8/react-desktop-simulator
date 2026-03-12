@@ -75,7 +75,10 @@ function Desktop() {
       
          <div className="taskbar">
         <button className="start-button"
-          onClick={() => setShowMenu(!showMenu)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowMenu(!showMenu);
+          }}
         >
           <b>Start</b>
         </button>

@@ -21,8 +21,8 @@ function startMenu({ onClose, desktopIcons, openWindows, setOpenWindows }) {
             }
         };
 
-        document.addEventListener('mousedown',closeOpenMenu);
-        return () => document.removeEventListener('mousedown', closeOpenMenu);
+        document.addEventListener('click',closeOpenMenu);
+        return () => document.removeEventListener('click', closeOpenMenu);
     }, []);
 
     const handleClick = (iconId) => { 
