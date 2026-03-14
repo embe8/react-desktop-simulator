@@ -16,6 +16,7 @@ function Desktop() {
   const [openWindows, setOpenWindows] = useState([]);
   const [windowTitles, setWindowTitles] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
+  const [minimizedWindows, setMinimizeWindow] = useState([]);
   
   const desktopIcons = [
     { id: 'music', name: 'Music', icon: '🎵' },
@@ -26,13 +27,20 @@ function Desktop() {
     { id: 'games', name: 'Video Games', icon: '🎮' },
     { id: 'vinyl', name: 'Vinyl Collection', icon: '💿', hidden: true },
     { id: 'spotify', name: 'Spotify Stats', icon: '🎧', hidden: true },
-    
-
   ];
 
   const closeWindow = (windowId) => {
     setOpenWindows(openWindows.filter(id => id !== windowId));
   };
+
+  const minimizeWindow = (windowId) => {
+    setMinimizeWindow([...minimizedWindows, windowId]);
+};
+  const restoreWindow = (windowId) => {
+    setMinimizeWindow(minimizedWindows.filter(id => id !== windowId));
+  }; 
+
+
   
   return (
     
@@ -42,7 +50,6 @@ function Desktop() {
       setOpenWindows={setOpenWindows}
       />
 
-       {/* Windows will go here */}
       {/* Render opened windows */}
       {openWindows.map(windowId => {
         const icon = desktopIcons.find(i => i.id === windowId);
@@ -51,9 +58,12 @@ function Desktop() {
         return (
           <Window 
             key={windowId}
+            style={{ display: minimizedWindows.includes(windowId) ? 'none' : 'block' }}
             icon={icon.icon}
             title={title}
             onClose={() => closeWindow(windowId)}
+            onMinimize={() => minimizeWindow(windowId)}
+            isMinimized={minimizedWindows.includes(windowId)}
           >
             {/* Content for each window type */}
             {windowId === 'music' && (
@@ -71,9 +81,8 @@ function Desktop() {
           </Window>
         );
       })}
-
-      
          <div className="taskbar">
+   
         <button className="start-button"
           onClick={(e) => {
             e.stopPropagation();
@@ -82,12 +91,27 @@ function Desktop() {
         >
           <b>Start</b>
         </button>
+
+        
+        
         {showMenu && <StartMenu 
           desktopIcons={desktopIcons}
           openWindows={openWindows}
           setOpenWindows={setOpenWindows}
           onClose={() => setShowMenu(false)}  
           />}
+                 {openWindows.map(windowId => {
+            const icon = desktopIcons.find(i => i.id === windowId);
+            return (
+              <button
+                key={windowId}
+                className="taskbar-window-btn"
+                onClick={() => restoreWindow(windowId)}
+                >
+                  {icon?.icon} {icon?.name}
+                </button>
+            );
+          })}
         <div className="taskbar-time">
           {new Date().toLocaleTimeString([], { 
             day: 'numeric',

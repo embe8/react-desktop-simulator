@@ -1,4 +1,5 @@
 import animeList from '../../data/anime.json';
+
 function AnimeWindow() {
     return (
         <div className="anime-container">
