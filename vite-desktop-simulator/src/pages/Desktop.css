@@ -133,5 +133,12 @@
       padding: 4px 12px;
 
     }
+
+    .taskbar-window-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px; 
+      background-color:#fbf9f95f;      
+    }
   
   }

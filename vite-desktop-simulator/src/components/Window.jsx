@@ -8,14 +8,23 @@ import 'react-resizable/css/styles.css';
 export function Window({ icon, title, onClose, onMinimize, children, isMinimized}) {
   const nodeRef = useRef(null); // Create a ref
   const [size, setSize] = useState({ width: 200, height: 'auto' });
+  const [isMaximized, setMaximize] = useState(false);
+  const [previousSize, setPreviousSize] = useState(null);
 
   const onResize = (event, { size: newSize }) => {
     setSize({ width: newSize.width, height: newSize.height });
   };
+
+
   const handleMax = () => {
-    //get width and height of desktop page
-    setSize({width: 900, height: 700});
-    //
+    if (isMaximized) {
+      if (previousSize) setSize(previousSize);
+      setMaximize(false);
+    } else {
+      setPreviousSize({ width: size.width, height: size.height });
+      setSize({ width: 900, height: 700 });
+      setMaximize(true);
+    }
   };
 
 
@@ -48,7 +57,7 @@ export function Window({ icon, title, onClose, onMinimize, children, isMinimized
             </div>
             <div className="window-controls">
               <button className="window-btn minimize" onClick={onMinimize}>_</button>
-              <button className="window-btn maximize" onClick={handleMax}>□</button>
+              <button className="window-btn maximize" onClick={() => handleMax()}>□</button>
               <button className="window-btn close" onClick={onClose}>✕</button>
             </div>
           </div>

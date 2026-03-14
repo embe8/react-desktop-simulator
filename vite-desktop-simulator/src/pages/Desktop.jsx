@@ -100,18 +100,20 @@ function Desktop() {
           setOpenWindows={setOpenWindows}
           onClose={() => setShowMenu(false)}  
           />}
+          <div className="taskbar-window-btn">
                  {openWindows.map(windowId => {
             const icon = desktopIcons.find(i => i.id === windowId);
             return (
               <button
                 key={windowId}
-                className="taskbar-window-btn"
+                className="taskbar-btn"
                 onClick={() => restoreWindow(windowId)}
                 >
-                  {icon?.icon} {icon?.name}
+                  {icon?.icon} 
                 </button>
             );
           })}
+          </div>
         <div className="taskbar-time">
           {new Date().toLocaleTimeString([], { 
             day: 'numeric',
