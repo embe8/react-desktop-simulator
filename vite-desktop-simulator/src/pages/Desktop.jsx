@@ -17,6 +17,7 @@ function Desktop() {
   const [windowTitles, setWindowTitles] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
   const [minimizedWindows, setMinimizeWindow] = useState([]);
+
   
   const desktopIcons = [
     { id: 'music', name: 'Music', icon: '🎵' },
@@ -36,9 +37,21 @@ function Desktop() {
   const minimizeWindow = (windowId) => {
     setMinimizeWindow([...minimizedWindows, windowId]);
 };
+
+
   const restoreWindow = (windowId) => {
     setMinimizeWindow(minimizedWindows.filter(id => id !== windowId));
   }; 
+
+  const handleRestore = (windowId) => {
+    const isMinimized = minimizedWindow.includes(windowId);
+    if (isMinimized) {
+      restoreWindow(windowId);
+    }
+    else{
+      minimizeWindow(windowId);
+    }
+  };
 
 
   
@@ -107,7 +120,7 @@ function Desktop() {
               <button
                 key={windowId}
                 className="taskbar-btn"
-                onClick={() => restoreWindow(windowId)}
+                onClick={() => handleRestore(windowId)}
                 >
                   {icon?.icon} 
                 </button>
