@@ -52,7 +52,7 @@ function startMenu({ onClose, desktopIcons, openWindows, setOpenWindows }) {
         ref={startMenu}
         className="start-container"
         >
-            { desktopIcons.map(icon => (
+            { desktopIcons.filter(icon => !icon.hidden).map(icon => (
                 <div
                  key={icon.id}
                  className={`start-menu-item ${activeSubmenu === icon.id ? 'active' : ''}`}

@@ -44,7 +44,7 @@ function Desktop() {
   }; 
 
   const handleRestore = (windowId) => {
-    const isMinimized = minimizedWindow.includes(windowId);
+    const isMinimized = minimizedWindows.includes(windowId);
     if (isMinimized) {
       restoreWindow(windowId);
     }
