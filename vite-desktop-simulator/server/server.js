@@ -3,6 +3,8 @@
  import path from 'path';
  import { fileURLToPath } from 'url';
  import { sequelize } from './models/index.js';
+ import fs from 'fs';
+
 
  const app = express();
  const PORT = process.env.PORT || 3000;
@@ -38,3 +40,8 @@ app.use((err, req, res, next) => {
   
   // Sync database and load default data if none exist
 await sequelize.sync();
+
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
