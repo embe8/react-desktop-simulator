@@ -4,6 +4,13 @@
  import { fileURLToPath } from 'url';
  import { sequelize } from './models/index.js';
  import fs from 'fs';
+ import { Anime } from './models/Anime.js';
+ import { Concert } from './models/Concert.js';
+ import { Game } from './models/Game.js';
+ import { Movie } from './models/Movie.js';
+ import { Vinyl } from './models/Vinyl.js';
+ import { Window } from './models/Window.js';
+
 
 
  const app = express();
