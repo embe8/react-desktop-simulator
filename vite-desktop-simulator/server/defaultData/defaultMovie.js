@@ -1,0 +1,32 @@
+export const defaultMovie = [
+    {
+      "movieId": "m43638ce-6aa0-4b85-b27f-e1d07eb678c1",
+      "movieName": "Zodiac",
+      "movieDate": "1",
+      "movieMedia": null,
+      "movieNotes": "dummy text"
+       
+    },
+    {
+      "movieId": "m43638ce-6aa0-4b85-b27f-e1d07eb678c2",
+      "movieName": "We Need to Talk to Kevin",
+      "movieDate": "1",
+      "movieMedia": null,
+      "movieNotes": "dummy text"
+    },
+    {
+      "movieId": "m43638ce-6aa0-4b85-b27f-e1d07eb678c3",
+      "movieName": "Interstellar",
+      "movieDate": "1",
+      "movieMedia": null,
+      "movieNotes": "dummy text"
+    },
+    {
+        "movieId": "m43638ce-6aa0-4b85-b27f-e1d07eb678c4",
+        "movieName": "True Detective: Season 1",
+        "movieDate": "1",
+        "movieMedia": null,
+        "movieNotes": "dummy text"
+    }
+];
+  
