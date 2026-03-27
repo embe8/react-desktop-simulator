@@ -10,13 +10,16 @@
  import { Movie } from './models/Movie.js';
  import { Vinyl } from './models/Vinyl.js';
  import { Window } from './models/Window.js';
-
-
-
- const app = express();
- const PORT = process.env.PORT || 3000;
- const __filename = fileURLToPath(import.meta.url);
- const __dirname = path.dirname(__filename);
+import { defaultConcert } from './defaultData/defaultConcert.js';
+import { defaultGame } from './defaultData/defaultGame.js';
+import { defaultAnime } from './defaultData/defaultAnime.js';
+import { defaultMovie } from './defaultData/defaultMovie.js';
+import { defaultVinyl } from './defaultData/defaultVinyl.js';
+ 
+const app = express();
+const PORT = process.env.PORT || 3000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
  //Middleware
  app.use(cors());
@@ -47,6 +50,33 @@ app.use((err, req, res, next) => {
   
   // Sync database and load default data if none exist
 await sequelize.sync();
+
+if (await Concert.count() === 0) {
+  await Concert.bulkCreate(defaultConcert);
+}
+
+if (await Movie.count() === 0) {
+  await Movie.bulkCreate(defaultMovie);
+}
+
+if (await Anime.count() === 0) {
+  await Anime.bulkCreate(defaultAnime);
+}
+
+if (await Game.count() === 0) {
+  await Game.bulkCreate(defaultGame);
+}
+
+if (await Vinyl.count() === 0) {
+  await Vinyl.bulkCreate(defaultVinyl);
+}
+
+if (await About.count() === 0) {
+  await About.bulkCreate(defaultAbout);
+}
+
+
+
 
 // Start server
 app.listen(PORT, () => {
