@@ -1,0 +1,36 @@
+export const defaultVinyl = [
+    {
+      "vinylId": "v43638ce-6aa0-4b85-b27f-e1d07eb678c1",
+      "vinylAlbum": "Wolfgang Amadeus",
+      "vinylArtist": "Phoenix",
+      "vinylYear": "1",
+      "vinylMedia": null,
+      "vinylNotes": "dummy text"
+      
+    },
+    {
+      "vinylId": "v43638ce-6aa0-4b85-b27f-e1d07eb678c2",
+      "vinylAlbum": "Silent Alarm",
+      "vinylArtist": "Bloc Party",
+      "vinylYear": "1",
+      "vinylMedia": null,
+      "vinylNotes": "dummy text"
+    },
+    {
+      "vinylId": "v43638ce-6aa0-4b85-b27f-e1d07eb678c3",
+      "vinylAlbum": "Highly Evolved",
+      "vinylArtist": "The Vines",
+      "vinylYear": "1",
+      "vinylMedia": null,
+      "vinylNotes": "dummy text"
+    },
+    {
+        "vinylId": "v43638ce-6aa0-4b85-b27f-e1d07eb678c4",
+        "vinylAlbum": "Get Behind Me Satan",
+        "vinylArtist": "The White Stripes",
+        "vinylYear": "1",
+        "vinylMedia": null,
+        "vinylNotes": "dummy text"
+    }
+];
+  
