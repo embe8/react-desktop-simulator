@@ -9,13 +9,15 @@
  import { Game } from './models/Game.js';
  import { Movie } from './models/Movie.js';
  import { Vinyl } from './models/Vinyl.js';
+ import { About } from './models/About.js';
  import { Window } from './models/Window.js';
 import { defaultConcert } from './defaultData/defaultConcert.js';
 import { defaultGame } from './defaultData/defaultGame.js';
 import { defaultAnime } from './defaultData/defaultAnime.js';
 import { defaultMovie } from './defaultData/defaultMovie.js';
 import { defaultVinyl } from './defaultData/defaultVinyl.js';
- 
+import { defaultAbout } from './defaultData/defaultAbout.js';
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
@@ -31,14 +33,14 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Catch-all route to serve index.html for any unmatched routes
-app.get('*', (req, res) => {
-    const indexPath = path.join(__dirname, 'dist', 'index.html');
-    if (fs.existsSync(indexPath)) {
-      res.sendFile(indexPath);
-    } else {
-      res.status(404).send('index.html not found');
-    }
-  });
+app.get('/{*splat}', (req, res) => {
+  const indexPath = path.join(__dirname, 'dist', 'index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(404).send('index.html not found');
+  }
+});
 
   // Error handling middleware
 /* eslint-disable no-unused-vars */
