@@ -23,11 +23,21 @@ const PORT = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const [items, setItems] = useState([]);
+cont [loading, setLoading] = useState(true);
+
  //Middleware
  app.use(cors());
  app.use(express.json());
 //Serve images from the images folder
  app.use('/images/', express.static(path.join(__dirname, 'images')));
+
+ useEffect(() => {
+  fetch('api/concerts')
+  .then(response => response.json())
+  .then(setItems)
+  .finally(() => setLoading(false));
+  }, []);
 
  // Serve static files from the dist folder
 app.use(express.static(path.join(__dirname, 'dist')));
