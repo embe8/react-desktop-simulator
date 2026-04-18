@@ -17,14 +17,10 @@ import { defaultAnime } from './defaultData/defaultAnime.js';
 import { defaultMovie } from './defaultData/defaultMovie.js';
 import { defaultVinyl } from './defaultData/defaultVinyl.js';
 import { defaultAbout } from './defaultData/defaultAbout.js';
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-const [items, setItems] = useState([]);
-cont [loading, setLoading] = useState(true);
 
  //Middleware
  app.use(cors());
@@ -32,12 +28,76 @@ cont [loading, setLoading] = useState(true);
 //Serve images from the images folder
  app.use('/images/', express.static(path.join(__dirname, 'images')));
 
- useEffect(() => {
-  fetch('api/concerts')
-  .then(response => response.json())
-  .then(setItems)
-  .finally(() => setLoading(false));
-  }, []);
+ // Anime routes
+app.get('/api/anime', async (req, res) => {
+  try {
+    const anime = await Anime.findAll();
+    res.json(anime);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Concert routes
+app.get('/api/concerts', async (req, res) => {
+  try {
+    const concerts = await Concert.findAll();
+    res.json(concerts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Game routes
+app.get('/api/games', async (req, res) => {
+  try {
+    const games = await Game.findAll();
+    res.json(games);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Movie routes
+app.get('/api/movies', async (req, res) => {
+  try {
+    const movies = await Movie.findAll();
+    res.json(movies);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Vinyl routes
+app.get('/api/vinyls', async (req, res) => {
+  try {
+    const vinyls = await Vinyl.findAll();
+    res.json(vinyls);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// About routes
+app.get('/api/about', async (req, res) => {
+  try {
+    const about = await About.findAll();
+    res.json(about);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Window routes
+app.get('/api/windows', async (req, res) => {
+  try {
+    const windows = await Window.findAll();
+    res.json(windows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
  // Serve static files from the dist folder
 app.use(express.static(path.join(__dirname, 'dist')));
