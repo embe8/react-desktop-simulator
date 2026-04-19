@@ -1,10 +1,19 @@
-import games from '../../data/games.json';
+import { useState, useEffect } from 'react';
 
 function GamesWindow() {
+    const [gamesList, setGamesList] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/games')
+        .then(res => res.json())
+        .then(data => setGamesList(data))
+        .catch(err => console.error('Error fetching games:', err))
+
+    }, [])
 
     return (
         <div className="games-container">
-            {games.map(game => (
+            {gamesList.map(game => (
                 <div key={game.gameId}
                     className="game-card">
                     <img src={game.gameMedia} alt='image'/>

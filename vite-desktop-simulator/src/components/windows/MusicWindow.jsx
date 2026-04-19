@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 function MusicWindow({ setWindowTitle }) {
     const [active, setActive] = useState(null)
 
+
+
     const musicIcons = [
         { id: 'vinyl', name: 'Vinyl Collection', icon: '💿' },
         { id: 'spotify', name: 'Spotify Stats', icon: '🎧' },
@@ -43,13 +45,20 @@ function MusicWindow({ setWindowTitle }) {
 
 export default MusicWindow;
 
-import vinyls from '../../data/vinyl.json';
 
 function VinylCollection({ onBack }) {
+    const [vinylList, setVinylList] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/vinyls')
+        .then(res => res.json())
+        .then(data => setVinylList(data))
+        .catch(err => console.error('Error fetching vinyl list:', err));
+    }, [])
     return (
         <div className="vinyl-container">
             <button onClick={onBack}>⬅ Back</button>            
-            {vinyls.map(vinyl => (
+            {vinylList.map(vinyl => (
                 <div 
                 key={vinyl.vinylId} className="vinyl-card">
                 <img src={vinyl.vinylMedia} alt="image" />

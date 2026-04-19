@@ -1,10 +1,18 @@
-import movies from '../../data/movies.json';
+import { useState, useEffect } from 'react';
 
 function MoviesWindow() {
+    const [moviesList, setMoviesList] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/movies')
+        .then(res => res.json())
+        .then(data => setMoviesList(data))
+        .catch(err => console.error('Error fetching movies:', err));
+    }, [])
 
     return (
         <div className="movies-container">
-            {movies.map(movie => (
+            {moviesList.map(movie => (
                 <div
                     key={movie.movieId} className='movie-card'>
                     <img src={movie.movieMedia} alt='image' />

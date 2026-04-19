@@ -1,7 +1,15 @@
-import aboutList from '../../data/aboutme.json';
-
+import { useState, useEffect } from 'react';
 
 function AboutWindow() {
+    const [aboutList, setAboutList] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/about')
+        .then(res => res.json())
+        .then(data => setAboutList(data))
+        .catch(err => console.error('Error fetching about list:', err))
+    }, []);
+
     return (
         <div className="about-container">
                 {aboutList.map(about => (
