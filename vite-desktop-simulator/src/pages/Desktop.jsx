@@ -9,6 +9,7 @@ import ConcertsWindow from '../components/windows/ConcertsWindow';
 import AboutWindow from '../components/windows/AboutWindow';
 import GamesWindow from '../components/windows/GamesWindow';
 import StartMenu from '../components/startMenu';
+import PlayerWindow from '../components/windows/PlayerWindow';
 import startButtonImg from '../assets/start_button95.png';
 
 
@@ -26,6 +27,7 @@ function Desktop() {
     { id: 'concerts', name: 'Concerts', icon: '🎸' },
     { id: 'about', name: 'About Me', icon: '👤' },
     { id: 'games', name: 'Video Games', icon: '🎮' },
+    { id: 'player', name: 'Music Player', icon: '✩♬ ₊˚.🎧⋆☾⋆⁺₊✧ '},
     { id: 'vinyl', name: 'Vinyl Collection', icon: '💿', hidden: true },
     { id: 'spotify', name: 'Spotify Stats', icon: '🎧', hidden: true },
   ];
@@ -90,6 +92,7 @@ function Desktop() {
             {windowId === 'concerts' && <ConcertsWindow />}
             {windowId === 'about' && <AboutWindow />}
             {windowId === 'games' && <GamesWindow />}
+            {windowId == 'player' && <PlayerWindow />}
    
           </Window>
         );

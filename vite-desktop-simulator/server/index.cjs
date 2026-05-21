@@ -11,6 +11,12 @@ var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
 var app = express();
 
+const cors = require('cors')
+app.use(cors({ origin: 'http://localhost:5173' }))
+
+
+var access_token = '';
+
 var generateRandomString = function (length) {
   var text = '';
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -22,9 +28,7 @@ var generateRandomString = function (length) {
 };
 
 app.get('/auth/login', (req, res) => {
-  var scope = "streaming \
-               user-read-email \
-               user-read-private"
+  var scope = "streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state"
 
   var state = generateRandomString(16);
 
@@ -56,19 +60,24 @@ app.get('/auth/callback', (req, res) => {
     },
     json: true
   };
+
+
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
-      res.json({
-        access_token: body.access_token,
-        token_type: body.token_type,
-        expires_in: body.expires_in,
-      });
+// in /auth/callback success:
+access_token = body.access_token;
+res.redirect('http://127.0.0.1:5173/desktop');
     } else {
-      res.status(400).json({ error: error || body });
+      console.log('Spotify error:', body) // add this
+      res.status(400).json({ error: body })
     }
   });
 })
-  
+
+
+app.get('/auth/token', (req, res) => {
+  res.json({ access_token: access_token });
+});
 
 
 
