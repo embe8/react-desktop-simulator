@@ -32,8 +32,28 @@ function WebPlayback (props) {
 
       setPlayer(player)
 
-      player.addListener('ready', ({ device_id }) => {
+      player.addListener('ready', async ({ device_id }) => {
         console.log('Ready with Device ID', device_id)
+      
+        // transfer playback to this device
+        await fetch('https://api.spotify.com/v1/me/player', {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${props.token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ device_ids: [device_id], play: false })
+        })
+      
+        // fetch whatever is currently playing on your account
+        const res = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
+          headers: { 'Authorization': `Bearer ${props.token}` }
+        })
+      
+        if (res.status === 200) {
+          const data = await res.json()
+          if (data?.item) setTrack(data.item)  // show current track immediately
+        }
       })
 
       player.addListener('not_ready', ({ device_id }) => {
@@ -80,7 +100,7 @@ function WebPlayback (props) {
 
             <button
               className='btn-spotify'
-              onClick={() => {
+              onClick={() => { player &&
                 player.previousTrack()
               }}
             >
@@ -89,7 +109,7 @@ function WebPlayback (props) {
 
             <button
               className='btn-spotify'
-              onClick={() => {
+              onClick={() => { player &&
                 player.togglePlay()
               }}
             >
@@ -98,7 +118,7 @@ function WebPlayback (props) {
 
             <button
               className='btn-spotify'
-              onClick={() => {
+              onClick={() => {player &&
                 player.nextTrack()
               }}
             >
