@@ -1,0 +1,40 @@
+.now-playing__cover {
+    width: 100%;          /* fill the container */
+    max-width: 300px;     /* don't get too big */
+    height: auto;         /* keep aspect ratio */
+    object-fit: cover;    /* no stretching */
+    border-radius: 8px;   /* optional, looks nice */
+  }
+
+  .main-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .volume-wrapper {
+    display: flex;
+    align-items: right;
+  gap: 8px;
+  margin-top: 5px;
+  }
+
+  /*.volume-wrapper input[type='range'] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+  }*/
+
+  .volume-wrapper input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 20%;
+    background: #fff;
+    cursor: pointer;
+  }
