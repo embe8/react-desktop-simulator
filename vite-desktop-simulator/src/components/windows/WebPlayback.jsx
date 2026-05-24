@@ -87,14 +87,23 @@ const [position, setPosition] = useState(0)
 
         setTrack(state.track_window.current_track)
         setPaused(state.paused)
+        setDuration(state.duration)
+        setPosition(state.position)
 
         player.getCurrentState().then(state => {
           !state ? setActive(false) : setActive(true)
         })
       })
       
-
+const interval = setInterval(async () => {
+  const state = await player.getCurrentState()
+  if (state && !state.paused) {
+    setPosition(state.position)
+  }
+}, 1000)
       player.connect()
+
+      return () => clearInterval(interval)
     }
   }, [])
 
@@ -128,10 +137,11 @@ const [position, setPosition] = useState(0)
     value={position}
     onChange={(e) => {
       const val = parseFloat(e.target.value)
-      seek(val)
+      player.seek(val)
       player && player.seek(val)
     }}
   />
+  <span className='seek-time'>{formatTime(duration)}</span>
 </div>
 
             <div className='volume-wrapper'>
