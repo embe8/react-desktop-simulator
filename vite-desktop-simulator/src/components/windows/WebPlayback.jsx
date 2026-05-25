@@ -18,6 +18,15 @@ const formatTime = (ms) => {
   return `${m}:${s.toString().padStart(2, '0')}`
 }
 
+      
+const fetchProfile = async () => {
+  const res = await fetch('https://api.spotify.com/v1/me', {
+    headers: { Authorization: `Bearer ${props.token}` }
+  })
+  const data = await res.json()
+  setProfile(data)
+  setShowProfile(true)
+}
 
 function WebPlayback (props) {
   const [player, setPlayer] = useState(undefined)
@@ -27,6 +36,8 @@ function WebPlayback (props) {
   const [volume, setVolume] = useState(0.5)
   const [duration, setDuration] = useState(0)
 const [position, setPosition] = useState(0)
+const [profile, setProfile] = useState(null)
+const [showProfile, setShowProfile] = useState(false)
 
 
   useEffect(() => {
@@ -48,6 +59,7 @@ const [position, setPosition] = useState(0)
       })
 
       setPlayer(player)
+
 
       player.addListener('ready', async ({ device_id }) => {
         console.log('Ready with Device ID', device_id)
@@ -89,12 +101,13 @@ const [position, setPosition] = useState(0)
         setPaused(state.paused)
         setDuration(state.duration)
         setPosition(state.position)
+        
 
         player.getCurrentState().then(state => {
           !state ? setActive(false) : setActive(true)
         })
       })
-      
+
 const interval = setInterval(async () => {
   const state = await player.getCurrentState()
   if (state && !state.paused) {
@@ -111,6 +124,25 @@ const interval = setInterval(async () => {
     <>
       <div className='container'>
         <div className='main-wrapper'>
+          <div className='menu'>
+          <a className="btn-spotify" href={fetchProfile}>
+                    My Profile
+          </a>
+          {showProfile && profile && (
+            <div className='profile-wrapper'>
+              <button className='btn-close' onClick={() => setShowProfile(false)}>x</button>
+              {profile.images?.[0]?.url && (
+      <img src={profile.images[0].url} alt='profile' className='profile-img' />
+    )}
+    <p>{profile.display_name}</p>
+    <p>{profile.email}</p>
+    <p>{profile.followers.total} followers</p>
+    <p>{profile.product}</p>  {/* free or premium */}
+  </div>
+)}
+
+
+          </div>
           {current_track.album.images?.[0]?.url ? (
             <img
               src={current_track.album.images[0].url}
